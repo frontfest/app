@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header, article, nav, aside {
+    padding: 1em;
+}
+
+.main-header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: #222;
+    color: white;
+    font-size: 30px;
+    padding: 0.5em;
+    font-weight: 400;
+    z-index: 1;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.main-content {
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1em;
+}
+
+/* Talk & Speakers Info */
+
+.speaker-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.speaker-info > * {
+    margin-right: 5px;
+}
+
+.round-picture {
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+/* Questions */
+
+.ask-question-form {
+    display: flex;
+}
+
+.ask-question-form .nice-textarea {
+    flex-grow: 1;
+}
+
+.question-card {
+    position: relative;
+    padding: 16px;
+    border-radius: 3px;
+    margin: 8px 0px;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2),
+                0 2px 2px rgba(0,0,0,.14),
+                0 3px 1px -2px rgba(0,0,0,.12);
+    overflow-x: hidden;
+}
+
+.questions-enter-active, .questions-leave-active {
+    transition: all 500ms;
+}
+
+.questions-enter, .questions-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.questions-move {
+    transition: transform 1s;
+}
+
+.vote-question {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.vote-question:hover {
+    background-color: #eee;
+}
+
+.vote-question .icon-heart {
+    color: #ff3b3b;
+}
+
+.vote-question .icon-spin6 {
+    font-size: 10px;
+}
+
+/* Nice button */
+
+.nice-button {
+    background-color: #F5B63F;
+    width: 60px;
+    font-size: 20px;
+    color: white;
+    outline: 0;
+    border: 0;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 4px 16px;
+    text-decoration: none;
+    box-shadow: 0 1px 5px rgba(0,0,0,.2),
+                0 2px 2px rgba(0,0,0,.14),
+                0 3px 1px -2px rgba(0,0,0,.12);
+}
+
+/* Nice Textarea from https://codepen.io/lehollandaisvolant/pen/aNQNjx */
+
+.nice-textarea {
+    display: block;
+    border: 0;
+    padding: 10px 5px;
+    background: white no-repeat;
+    font-size: 16px;
+	
+	/*
+	* IMPORTANT PART HERE
+	*/
+	
+    /* 2 imgs : 1px gray line (normal state) AND 2px green line (focus state) */
+    background-image: linear-gradient(to bottom, #F5B63F, #F5B63F), linear-gradient(to bottom, silver, silver);
+    /* sizes for the 2 images (default state) */
+    background-size: 0 2px, 100% 1px;
+    /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+    background-position: 50% 100%, 50% 100%;
+
+    /* animation solely on background-size */
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.nice-textarea:focus {
+    /* sizes for the 2 images (focus state) */
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
