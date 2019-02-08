@@ -37,7 +37,7 @@
                 </div>
             </div>
             <template v-if="allowAskQuestions">
-                <h3>Preguntas:</h3>
+                <h3>Preguntas<span v-if="enableModeration"> (Moderación activada)</span>:</h3>
                 <form @submit.prevent="addQuestion" class="ask-question-form">
                     <textarea class="nice-textarea" v-model="newQuestionText" placeholder="¿Alguna pregunta? :)"></textarea>
                     <button type="submit" class="nice-button">
