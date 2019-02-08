@@ -47,7 +47,13 @@
                 </form>
             </template>
             <transition-group name="questions" tag="div">
-                <div v-for="question in sortedQuestions" :key="question.id" class="question-card" :style="question.userId === userId && {'background-color': 'rgb(200, 218, 255)'}">
+                <div
+                    v-for="question in sortedQuestions"
+                    :key="question.id"
+                    v-if="!enableModeration || enableModeration && question.approved"
+                    class="question-card"
+                    :style="question.userId === userId && {'background-color': 'rgb(200, 218, 255)'}"
+                >
                     <div>{{ question.text }}</div>
                     <span class="vote-question" @click="voteQuestion(question)">
                         <i v-if="userVotes[question.id]" class="icon-heart"></i>

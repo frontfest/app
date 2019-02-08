@@ -70,6 +70,7 @@ const app = new Vue({
         userVotes: {},
         currentTalkId: '',
         allowAskQuestions: false,
+        enableModeration: false,
         newQuestionText: '',
         sendingQuestion: false,
         questions: [],
@@ -82,9 +83,6 @@ const app = new Vue({
         sortedQuestions() {
             return this.questions.sort((a, b) => b.votes - a.votes);
         },
-        // questionsRef() {
-        //     return database.ref(`/questions/${this.currentTalkId}`);
-        // },
     },
     watch: {
         currentTalkId() {
@@ -140,6 +138,9 @@ const app = new Vue({
         });
         database.ref('allowAskQuestions').on('value', snapshot => {
             this.allowAskQuestions = snapshot.val() || false;
+        });
+        database.ref('enableModeration').on('value', snapshot => {
+            this.enableModeration = snapshot.val() || false;
         });
         database.ref('eventMessages').on('value', snapshot => {
             const messages = snapshot.val() || {};

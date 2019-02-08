@@ -16,6 +16,7 @@ exports.ask = functions.https.onRequest((req, res) => {
                     userId,
                     text: question,
                     votes: 0,
+                    approved: false,
                 });
         })
         .then(snapshot => {
