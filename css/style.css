@@ -24,6 +24,7 @@ header, article, nav, aside {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: #222;
     color: white;
     font-size: 30px;
@@ -31,6 +32,16 @@ header, article, nav, aside {
     font-weight: 400;
     z-index: 1;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.feedback {
+    font-size: 14px;
+    color: white;
 }
 
 .main-content {
