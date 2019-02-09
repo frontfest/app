@@ -19,9 +19,7 @@ exports.ask = functions.https.onRequest((req, res) => {
                     approved: false,
                 });
         })
-        .then(snapshot => {
-            return res.sendStatus(200).send({ id: snapshot.key });
-        });
+        .then(() => res.sendStatus(200));
 });
 
 exports.vote = functions.https.onRequest((req, res) => {
@@ -35,20 +33,20 @@ exports.vote = functions.https.onRequest((req, res) => {
                 ? Promise.reject('already voted')
                 : admin.database().ref('currentTalkId').once('value'); // get the current talk
         })
-        .then(snapshot => { // vote the question
+        .then(snapshot => {
             const currentTalkId = snapshot.val();
-            return admin.database().ref(`/questions/${currentTalkId}`)
-                .child(questionId)
-                .child('votes')
-                .transaction(votes => votes + 1);
-        })
-        .then(() => { // store that the question has been voted
-            return admin.database().ref(`votes/${userId}`).update({
-                [questionId]: true,
-            });
+            return Promise.all([
+                admin.database().ref(`/questions/${currentTalkId}`) // vote the question
+                    .child(questionId)
+                    .child('votes')
+                    .transaction(votes => votes + 1),
+                admin.database().ref(`votes/${userId}`).update({ // store that the question has been voted
+                    [questionId]: true,
+                })
+            ]);
         })
         .then(
             () => res.sendStatus(200),
-            error => res.sendStatus(500).send({ message: error })
+            () => res.sendStatus(500)
         );
 });

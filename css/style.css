@@ -60,6 +60,10 @@ header, article, nav, aside {
     border: 1px solid #ccc;
 }
 
+.description {
+    margin-top: 20px;
+}
+
 /* Questions */
 
 .ask-question-form {

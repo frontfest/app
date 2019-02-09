@@ -10,58 +10,6 @@ firebase.initializeApp({
 const database = firebase.database();
 const CLOUD_FUNCTIONS = 'https://us-central1-front-fest.cloudfunctions.net';
 
-const TALKS_INFO = {
-    1: {
-        title: 'Duendecillos en tu navegador: service workers',
-        speakers: [
-            { name: 'Paqui Calabria', twitter: 'zurribulle', img: './images/paqui.jpg' },
-            { name: 'Ismael Navarro', twitter: 'ismanapa', img: './images/ismael.jpg' },
-        ],
-    },
-    2: {
-        title: 'Road to Web Components',
-        speakers: [
-            { name: 'Cristina Ponce', twitter: 'CristinaGrim', img: './images/cristina.jpg' },
-        ],
-    },
-    3: {
-        title: '¿Cómo funciona un router SPA? Caso práctico con Vue Router',
-        speakers: [
-            { name: 'Eduardo San Martín', twitter: 'posva', img: './images/eduardo.jpg' },
-        ],
-    },
-    4: {
-        title: 'La igualdad en los espacios laborales: retos y beneficios',
-        speakers: [
-            { name: 'José Antonio Vela', twitter: 'ecosdegenero', img: './images/jose.jpg' },
-        ],
-    },
-    5: {
-        title: 'Cómo te la "colamos" los diseñadores todos los días',
-        speakers: [
-            { name: 'James Heda Weng', twitter: 'JamesHedaWeng', img: './images/james.jpg' },
-        ],
-    },
-    6: {
-        title: 'Cómo programar un motor de animaciones cuidando el rendimiento',
-        speakers: [
-            { name: 'Vicente Lucendo', twitter: 'vlucendo', img: './images/vicente.jpg' },
-        ],
-    },
-    7: {
-        title: 'Las reglas han cambiado, Custom Properties!',
-        speakers: [
-            { name: 'Jasús Olazagoitia', twitter: 'goiblas', img: './images/jesus.jpg' },
-        ],
-    },
-    8: {
-        title: 'Testing sin dogmas',
-        speakers: [
-            { name: 'Sergio Arbeo', twitter: 'serabe', img: './images/sergio.jpg' },
-        ],
-    },
-};
-
 const app = new Vue({
     el: '#app',
     data: {

@@ -46,6 +46,7 @@
                     </button>
                 </form>
             </template>
+            <div v-else class="description" v-html="currentTalk.description"></div>
             <transition-group name="questions" tag="div">
                 <div
                     v-for="question in sortedQuestions"
@@ -83,6 +84,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
 
     <!-- App -->
+    <script src="talks_info.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
